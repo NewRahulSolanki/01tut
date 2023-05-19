@@ -45,24 +45,28 @@ const AllInONe = () => {
       <button onClick={handleClick}>Click Here</button>
       <button onClick={() => handleClick2("rahul")}>Click Here</button>
 
-      <ul>
-        {list.map((item) => (
-          <li key={item.id}>
-            <input
-              type="checkbox"
-              onChange={() => handleCheck(item.id)}
-              checked={item.checked}
-            />
-            <label
-              style={item.checked ? { textDecoration: "line-through" } : null}
-              onDoubleClick={() => handleCheck(item.id)}
-            >
-              {item.name}
-            </label>
-            <button onClick={() => handleDelete(item.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      {list.length ? (
+        <ul>
+          {list.map((item) => (
+            <li key={item.id}>
+              <input
+                type="checkbox"
+                onChange={() => handleCheck(item.id)}
+                checked={item.checked}
+              />
+              <label
+                style={item.checked ? { textDecoration: "line-through" } : null}
+                onDoubleClick={() => handleCheck(item.id)}
+              >
+                {item.name}
+              </label>
+              <button onClick={() => handleDelete(item.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p style={{ marginTop: "2rem" }}>Your list is empty</p>
+      )}
     </div>
   );
 };
