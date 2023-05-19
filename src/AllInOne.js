@@ -26,6 +26,10 @@ const AllInONe = () => {
     );
     setList(listItems);
   };
+  const handleDelete = (id) => {
+    const listItems = list.filter((item) => item.id !== id);
+    setList(listItems);
+  };
   const handleClick = () => {
     console.log("clicked");
     setCount(Math.floor(Math.random() * 5));
@@ -55,6 +59,7 @@ const AllInONe = () => {
             >
               {item.name}
             </label>
+            <button onClick={() => handleDelete(item.id)}>Delete</button>
           </li>
         ))}
       </ul>
